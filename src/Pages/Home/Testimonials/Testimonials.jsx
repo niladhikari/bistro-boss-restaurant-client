@@ -1,7 +1,7 @@
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import 'swiper/css';
 
@@ -27,7 +27,7 @@ const Testimonials = () => {
       <Swiper navigation={true} modules={[Navigation]}>
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
-            <div className="flex flex-col items-center mx-4 my-8">
+            <div className="flex flex-col items-center  my-8 mx-28">
               <Rating style={{ maxWidth: 180 }} value={review.rating} readOnly />
               <p className="py-4">{review.details}</p>
               <h3 className="text-2xl text-orange-400">{review.name}</h3>

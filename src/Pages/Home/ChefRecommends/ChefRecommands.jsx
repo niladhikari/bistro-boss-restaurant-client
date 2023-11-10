@@ -8,52 +8,64 @@ const ChefRecommends = () => {
         subHeading="Should Try"
       ></SectionTitle>
       <div className="grid lg:grid-cols-3 gap-10 mt-10">
-        <div className="card  bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
+        <div className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
             <img
+              className="object-cover w-full h-80"
               src="https://i.ibb.co/8YGytyy/slide1.jpg"
-              alt="Shoes"
-              className="rounded-xl"
+              alt="ui/ux review check"
             />
-          </figure>
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">Caeser Salad</h2>
-            <p>Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Add to cart</button>
-            </div>
+          </div>
+          <div className="p-6 text-center">
+            <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+              Caeser Salad
+            </h4>
+            <p className="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700">
+              Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets..
+            </p>
+          </div>
+          <div className="grid justify-center mb-3">
+            <button className="btn">Add to cart</button>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
+        <div className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
             <img
+              className="object-cover w-full h-80"
               src="https://i.ibb.co/8YGytyy/slide1.jpg"
-              alt="Shoes"
-              className="rounded-xl"
+              alt="ui/ux review check"
             />
-          </figure>
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">Caeser Salad</h2>
-            <p>Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Add to cart</button>
-            </div>
+          </div>
+          <div className="p-6 text-center">
+            <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+              Caeser Salad
+            </h4>
+            <p className="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700">
+              Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets..
+            </p>
+          </div>
+          <div className="grid justify-center mb-3">
+            <button className="btn">Add to cart</button>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
+        <div className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
             <img
+              className="object-cover w-full h-80"
               src="https://i.ibb.co/8YGytyy/slide1.jpg"
-              alt="Shoes"
-              className="rounded-xl"
+              alt="ui/ux review check"
             />
-          </figure>
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">Caeser Salad</h2>
-            <p>Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Add to cart</button>
-            </div>
+          </div>
+          <div className="p-6 text-center">
+            <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+              Caeser Salad
+            </h4>
+            <p className="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700">
+              Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets..
+            </p>
+          </div>
+          <div className="grid justify-center mb-3">
+            <button className="btn">Add to cart</button>
           </div>
         </div>
       </div>

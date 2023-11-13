@@ -2,40 +2,43 @@ import { Link, NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "./../../../Hooks/useAuth";
-
-const links = (
-  <>
-    <>
-      <li>
-        <NavLink to={"/"}>Home</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/menu"}>Our Menu</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/order/salad"}>Order Food</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/secret"}>Secret</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/secret"}>
-          <button className="flex items-center gap-2">
-            <FaShoppingCart></FaShoppingCart>
-            <div className="badge">+0</div>
-          </button>
-        </NavLink>
-      </li>
-    </>
-  </>
-);
+import useCarts from "../../../Hooks/useCarts";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [cart] = useCarts();
 
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
+
+  const links = (
+    <>
+      <>
+        <li>
+          <NavLink to={"/"}>Home</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/menu"}>Our Menu</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/order/salad"}>Order Food</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/secret"}>Secret</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/secret"}>
+            <button className="flex items-center gap-2">
+              <FaShoppingCart></FaShoppingCart>
+              <div className="badge">{cart.length}</div>
+            </button>
+          </NavLink>
+        </li>
+      </>
+    </>
+  );
+
   const handleTheme = (event) => {
     if (event.target.checked) {
       setTheme("dark");

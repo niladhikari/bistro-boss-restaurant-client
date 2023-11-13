@@ -1,6 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navLink = (
     <>
       <li>
@@ -11,9 +19,6 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to={"/order/salad"}>Order Food</NavLink>
-      </li>
-      <li>
-        <a>Item 3</a>
       </li>
     </>
   );
@@ -46,16 +51,28 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="grid space-y-0 p-2">
-          <a className=" normal-case text-3xl font-bold font-mono">Bistro Boss</a>
+          <a className=" normal-case text-3xl font-bold font-mono">
+            Bistro Boss
+          </a>
           <span className="normal-case text-2xl font-serif">Restaurant</span>
-          
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user ? (
+          <>
+            <span>{user?.displayName}</span>
+            <button onClick={handleLogOut} className="btn btn-ghost">
+              LogOut
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login"><button className="btn btn-ghost">Login</button></Link>
+          </>
+        )}
       </div>
     </div>
   );

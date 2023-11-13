@@ -1,25 +1,40 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img1 from "../../../src/assets/others/authentication2.png";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-
- const {createUser } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
-    createUser(data.email,data.password)
-    .then(result=>{
-        const loggedUser = result.user;
-        console.log(loggedUser);
-    })
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          console.log("user profile info updated");
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User created successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
+    });
   };
 
   return (
@@ -28,10 +43,14 @@ const SignUp = () => {
         <title>Login</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col md:flex-row gap-6">
+        <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">SignUp now!</h1>
-            <img src={img1} alt="" />
+            <h1 className="text-5xl font-bold">Sign up now!</h1>
+            <p className="py-6">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              et a id nisi.
+            </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">

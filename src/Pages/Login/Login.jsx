@@ -6,15 +6,17 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const { signIn } = useAuth();
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -38,6 +40,7 @@ const Login = () => {
           popup: "animate__animated animate__fadeOutUp",
         },
       });
+      navigate(from, { replace: true });
     });
   };
 

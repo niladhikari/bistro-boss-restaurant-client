@@ -28,7 +28,7 @@ const Navbar = () => {
           <NavLink to={"/secret"}>Secret</NavLink>
         </li>
         <li>
-          <NavLink to={"/secret"}>
+          <NavLink to={"/dashboard/cart"}>
             <button className="flex items-center gap-2">
               <FaShoppingCart></FaShoppingCart>
               <div className="badge">{cart.length}</div>

@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <div>
       {noHeaderFooter || <Navbar></Navbar>}
-      <div className="pt-24 min-h-[calc(100vh-225px)]">
+      <div className=" min-h-[calc(100vh-225px)]">
         <Outlet></Outlet>
       </div>
       {noHeaderFooter || <Footer></Footer>}

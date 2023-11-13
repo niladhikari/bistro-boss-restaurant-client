@@ -9,7 +9,7 @@ const ChefService = () => {
       <div className="max-w-[1000px] h-80 bg-white mx-auto my-auto p-4 absolute inset-0">
         <div className=" text-center ">
           <h2 className="mt-20 text-4xl mb-2">Bistro Boss</h2>
-          <p className="w-[700px] mx-auto">
+          <p className="lg:w-[700px] mx-auto">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Necessitatibus, libero accusamus laborum deserunt ratione dolor
             officiis praesentium! Deserunt magni aperiam dolor eius dolore at,

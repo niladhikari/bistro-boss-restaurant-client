@@ -17,6 +17,7 @@ const Dashboard = () => {
     <div className="flex">
       {/* dashboard side bar */}
       <div className="w-64 min-h-screen bg-orange-400">
+        <h1 className="p-6"><span className="font-bold">BISTRO BOSS</span> <br /> Restaurant</h1>
         <ul className="menu p-4">
           <li>
             <NavLink to="/dashboard/userHome">

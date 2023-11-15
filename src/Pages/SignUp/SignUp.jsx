@@ -4,6 +4,8 @@ import img1 from "../../../src/assets/others/authentication2.png";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosOpen from "../../Hooks/useAxiosOpen";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const {
@@ -14,6 +16,7 @@ const SignUp = () => {
   } = useForm();
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
+  const axios = useAxiosOpen();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -22,16 +25,24 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("user profile info updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User created successfully.",
-            showConfirmButton: false,
-            timer: 1500,
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axios.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log(' user add in the database');
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
           });
-          navigate("/");
         })
         .catch((error) => console.log(error));
     });
@@ -146,12 +157,14 @@ const SignUp = () => {
                   Already registered?{" "}
                   <Link to="/login">
                     <span className="text-blue-600 font-bold">
-                      Go to log in </span>
+                      Go to log in{" "}
+                    </span>
                   </Link>
                 </small>
-                 Or sign Up with
+                Or sign Up with
               </p>
             </div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

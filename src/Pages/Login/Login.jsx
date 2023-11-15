@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -116,8 +117,8 @@ const Login = () => {
                 />
               </div>
             </form>
-            <div className="flex justify-center mb-2">
-              <p>
+            <div className="grid justify-center mb-2">
+              <p className="text-center">
                 <small>
                   New Here?{" "}
                   <Link to="/signup">
@@ -128,6 +129,7 @@ const Login = () => {
                 </small>
                 Or sign in with
               </p>
+              <SocialLogin></SocialLogin>
             </div>
           </div>
         </div>

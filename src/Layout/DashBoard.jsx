@@ -1,6 +1,7 @@
 import {
   FaAd,
   FaCalendar,
+  FaEnvelope,
   FaHome,
   FaList,
   FaSearch,
@@ -60,6 +61,12 @@ const Dashboard = () => {
             <NavLink to="/order/salad">
               <FaSearch></FaSearch>
               Menu
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">
+              <FaEnvelope></FaEnvelope>
+              Contact
             </NavLink>
           </li>
         </ul>

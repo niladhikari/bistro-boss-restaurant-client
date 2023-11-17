@@ -12,13 +12,14 @@ import {
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCarts from "../Hooks/useCarts";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCarts();
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
-    <div className="flex">
+    <div className="flex bg-[#F6F6F6]">
       {/* dashboard side bar */}
       <div className="w-64 min-h-screen bg-orange-400">
         <h1 className="p-6">

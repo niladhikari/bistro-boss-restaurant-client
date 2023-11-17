@@ -3,40 +3,42 @@ import SectionTitle from "./../../../Components/SectionTitle/SectionTitle";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxios from "../../../Hooks/useAxios";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
-  const [cart,refetch] = useCarts();
+  const [cart, refetch] = useCarts();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
   const axios = useAxios();
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-        if (result.isConfirmed) {
-
-          axios.delete(`/carts/${id}`)
-                .then(res => {
-                    if (res.data.deletedCount > 0) {
-                        refetch();
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                        });
-                    }
-                })
-        }
+      if (result.isConfirmed) {
+        axios.delete(`/carts/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
     });
-}
+  };
   return (
     <div>
+      <Helmet>
+        <title>Item Cart</title>
+      </Helmet>
       <SectionTitle
         subHeading={"My Cart"}
         heading={"WANNA ADD MORE ?"}
@@ -63,7 +65,7 @@ const Cart = () => {
           <tbody>
             {cart.map((item, index) => (
               <tr key={item._id}>
-                <th>{index+1}</th>
+                <th>{index + 1}</th>
                 <td>
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
@@ -79,7 +81,8 @@ const Cart = () => {
                 <th>
                   <button
                     onClick={() => handleDelete(item._id)}
-                   className="btn btn-ghost btn-xs bg-red-600">
+                    className="btn btn-ghost btn-xs bg-red-600"
+                  >
                     <RiDeleteBin5Line></RiDeleteBin5Line>
                   </button>
                 </th>

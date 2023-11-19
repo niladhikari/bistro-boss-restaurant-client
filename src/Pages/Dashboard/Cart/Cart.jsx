@@ -4,6 +4,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxios from "../../../Hooks/useAxios";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCarts();
@@ -46,9 +47,17 @@ const Cart = () => {
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-semibold">Item : {cart.length}</h2>
         <h2 className="text-3xl font-semibold">Total Price : {totalPrice}</h2>
-        <button className="btn btn-primary bg-orange-300 text-white">
-          Pay
-        </button>
+        {cart.length ? (
+          <Link to={"/dashboard/payment"}>
+            <button className="btn btn-primary bg-orange-300 text-white">
+              Pay
+            </button>
+          </Link>
+        ) : (
+          <button disabled className="btn btn-primary bg-orange-300 text-white">
+            Pay
+          </button>
+        )}
       </div>
       <div className="overflow-x-auto mt-8 rounded-xl ">
         <table className="table bg-yellow-100">

@@ -3,9 +3,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "./../../../Hooks/useAuth";
 import useCarts from "../../../Hooks/useCarts";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [isAdmin] = useAdmin();
   const [cart] = useCarts();
 
   const [theme, setTheme] = useState(
@@ -35,6 +37,12 @@ const Navbar = () => {
             </button>
           </NavLink>
         </li>
+        {
+            user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
+        }
+        {
+            user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
+        }
       </>
     </>
   );

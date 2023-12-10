@@ -1,7 +1,5 @@
 import {
   FaAd,
-  FaBook,
-  FaCalendar,
   FaEnvelope,
   FaHome,
   FaList,
@@ -47,12 +45,6 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/bookings">
-                  <FaBook></FaBook>
-                  Manage Bookings
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/dashboard/users">
                   <FaUsers></FaUsers>
                   All Users
@@ -65,12 +57,6 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/userHome">
                   <FaHome></FaHome>
                   User Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/reservation">
-                  <FaCalendar></FaCalendar>
-                  Reservation
                 </NavLink>
               </li>
               <li>

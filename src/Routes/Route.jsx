@@ -7,7 +7,6 @@ import Order from "../Pages/Order/Order/Order";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
-import Secret from "../Pages/Secret/Secret";
 import Dashboard from "../Layout/DashBoard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import AddItems from "../Pages/Dashboard/AddItems/AddItems";
@@ -19,12 +18,15 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import Error from "../Pages/Error/Error";
+import Review from "../Pages/Dashboard/Review/Review";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <Error></Error>,
       children: [
         {
             path: "/",
@@ -50,10 +52,6 @@ const router = createBrowserRouter([
             path: "/signup",
             element: <SignUp></SignUp>,
         },
-        {
-          path: 'secret',
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>
-        },
       ]
     },
     {
@@ -68,6 +66,10 @@ const router = createBrowserRouter([
         {
           path: 'cart',
           element: <Cart></Cart>
+        },
+        {
+          path: 'review',
+          element: <Review></Review>
         },
         {
           path: 'payment',
@@ -97,7 +99,7 @@ const router = createBrowserRouter([
         {
           path: 'updateItem/:id',
           element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
+          loader: ({params}) => fetch(`https://bistro-boss-restaurant-server-wheat.vercel.app//menu/${params.id}`)
         },
       ]
     }

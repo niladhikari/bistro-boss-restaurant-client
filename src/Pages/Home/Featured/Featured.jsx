@@ -15,15 +15,10 @@ const Featured = () => {
             <img src={featuredImg} alt="" />
           </div>
           <div className="md:ml-10">
-            <p>Aug 20, 2029</p>
+            <p>Dec 20, 2023</p>
             <p className="uppercase">Where can i get some?</p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-              expedita hic dolorem, iusto vel suscipit nam excepturi debitis
-              magnam nostrum! Ut eum dignissimos culpa doloremque eligendi
-              consectetur blanditiis laboriosam fugiat ea quia similique quam
-              nisi reprehenderit numquam magnam nemo vitae cupiditate, atque
-              maiores dicta minus pariatur. Perspiciatis nobis vero quas?
+            Chocolate is a popular and beloved food derived from the cacao bean, historically cherished for its rich, indulgent flavor. It has been consumed for centuries, initially by ancient civilizations like the Mayans and Aztecs who utilized cacao beans to create a bitter, frothy drink. Over time, chocolate evolved into various forms and flavors enjoyed worldwide
             </p>
             <button className="btn btn-outline border-0 border-b-4 mt-4">
               Read More

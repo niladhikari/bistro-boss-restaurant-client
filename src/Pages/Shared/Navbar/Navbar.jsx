@@ -27,9 +27,6 @@ const Navbar = () => {
           <NavLink to={"/order/salad"}>Order Food</NavLink>
         </li>
         <li>
-          <NavLink to={"/secret"}>Secret</NavLink>
-        </li>
-        <li>
           <NavLink to={"/dashboard/cart"}>
             <button className="flex items-center gap-2">
               <FaShoppingCart></FaShoppingCart>
@@ -101,7 +98,7 @@ const Navbar = () => {
             </div>
             <div className="grid space-y-0 p-2">
               <a className=" normal-case text-3xl font-bold font-mono text-red-500">
-                Bistro Boss
+                Hriyam
               </a>
               <span className="normal-case text-2xl font-serif">
                 Restaurant

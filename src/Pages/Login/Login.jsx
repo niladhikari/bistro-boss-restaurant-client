@@ -1,27 +1,16 @@
 import { Helmet } from "react-helmet-async";
 import img1 from "../../../src/assets/others/authentication2.png";
-import {
-  loadCaptchaEnginge,
-  LoadCanvasTemplate,
-  validateCaptcha,
-} from "react-simple-captcha";
-import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
-  const [disabled, setDisabled] = useState(true);
   const { signIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
-
-  useEffect(() => {
-    loadCaptchaEnginge(6);
-  }, []);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -45,14 +34,7 @@ const Login = () => {
     });
   };
 
-  const handleValidateCaptcha = (e) => {
-    const user_captcha_value = e.target.value;
-    if (validateCaptcha(user_captcha_value)) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  };
+
 
   return (
     <>
@@ -96,21 +78,8 @@ const Login = () => {
                   </a>
                 </label>
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <LoadCanvasTemplate />
-                </label>
-                <input
-                  onBlur={handleValidateCaptcha}
-                  type="text"
-                  name="captcha"
-                  placeholder="type the captcha above"
-                  className="input input-bordered"
-                />
-              </div>
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"

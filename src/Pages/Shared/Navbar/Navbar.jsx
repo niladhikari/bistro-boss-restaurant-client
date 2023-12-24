@@ -91,7 +91,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content  font-bold mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content   font-bold mt-3 z-[300] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 {links}
               </ul>
@@ -105,8 +105,8 @@ const Navbar = () => {
               </span>
             </div>
           </div>
-          <div className="navbar-center hidden md:flex">
-            <ul className="menu font-bold menu-horizontal px-1">{links}</ul>
+          <div className="navbar-center hidden md:flex z-[300]">
+            <ul className="menu font-bold z-[300] menu-horizontal px-1">{links}</ul>
           </div>
 
           {/* navbar light  */}
@@ -158,7 +158,7 @@ const Navbar = () => {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
+                      className="menu menu-sm dropdown-content mt-3 z-[300] p-2 shadow bg-base-100 rounded-box w-52"
                     >
                       <li>
                         <button className="btn btn-sm ">
